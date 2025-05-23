@@ -1,0 +1,112 @@
+.Tooltip {
+    position: relative;
+    display: inline-block;
+
+    .tooltip-text {
+        --tooltip-offset: 8px;
+        --tooltip-initial-offset: calc(var(--tooltip-offset) - 5px);
+
+        position: absolute;
+        background-color: var(--brand-color-300);
+        color: var(--text-primary-color);
+        box-shadow: 2px 2px 8px color-mix(in srgb, var(--card-shadow-color) 15%, transparent);
+        padding: 0.35rem .85rem;
+        border-radius: 6px;
+        white-space: nowrap;
+        font-size: 1rem;
+        z-index: 1000;
+        pointer-events: none;
+        opacity: 0;
+        scale: 0.85;
+        transition: box-shadow .2s ease, scale .2s ease, opacity .2s ease, transform .2s ease;
+
+        &.visible {
+            scale: 1;
+            opacity: 1;
+        }
+
+        /* ---------- TOP ---------- */
+        &.top-left, &.top-right, &.top-center {
+            transform-origin: center bottom;
+            bottom: 100%;
+            transform: translateY(
+                calc(var(--tooltip-initial-offset) * -1)
+            );
+            
+            &.visible {
+                transform: translateY(
+                    calc(var(--tooltip-offset) * -1)
+                );
+            }
+        }
+        &.top-left { left: 0; }
+        &.top-center {
+            left: 50%;
+            translate: -50%;
+        }
+        &.top-right { right: 0; }
+
+        /* ---------- BOTTOM ---------- */
+        &.bottom-left, &.bottom-right, &.bottom-center {
+            transform-origin: center top;
+            top: 100%;
+            transform: translateY(
+                var(--tooltip-initial-offset)
+            );
+            
+            &.visible {
+                transform: translateY(
+                    var(--tooltip-offset)
+                );
+            }
+        }
+        &.bottom-left { left: 0; }
+        &.bottom-center {
+            left: 50%;
+            translate: -50%;
+        }
+        &.bottom-right { right: 0; }
+
+        /* ---------- LEFT ---------- */
+        &.left-top, &.left-bottom, &.left-center {
+            transform-origin: center right;
+            right: 100%;
+            transform: translateX(
+                calc(var(--tooltip-initial-offset) * -1)
+            );
+            
+            &.visible {
+                transform: translateX(
+                    calc(var(--tooltip-offset) * -1)
+                );
+            }
+        }
+        &.left-top { top: 0; }
+        &.left-center {
+            top: 50%;
+            translate: 0 -50%;
+        }
+        &.left-bottom { bottom: 0; }
+
+        /* ---------- RIGHT ---------- */
+        &.right-top, &.right-bottom, &.right-center {
+            transform-origin: center left;
+            left: 100%;
+            transform: translateX(
+                var(--tooltip-initial-offset)
+            );
+            
+            &.visible {
+                transform: translateX(
+                    var(--tooltip-offset)
+                );
+            }
+        }
+        &.right-top { top: 0; }
+        &.right-center {
+            top: 50%;
+            translate: 0 -50%;
+        }
+        &.right-bottom { bottom: 0; }
+    }
+}

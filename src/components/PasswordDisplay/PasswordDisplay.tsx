@@ -1,3 +1,4 @@
+import Tooltip from '../Tooltip/Tooltip';
 import './PasswordDisplay.css'
 import { TbCopy, TbReload } from 'react-icons/tb'
 
@@ -13,8 +14,12 @@ const PasswordDisplay: React.FC<PasswordDisplayProps> = ({ length }) => {
         <div className="PasswordDisplay card">
             <span className='password-text'>{mockPassword.substring(0, length) || mockPassword.substring(0, mockPassword.length - 1)}</span>
             <div className="button-section">
-                <TbCopy className='btn-copy' />
-                <TbReload className='btn-reset' />
+                <Tooltip text='Copy'>
+                    <TbCopy className='btn-copy' />
+                </Tooltip>
+                <Tooltip text='Reset'>
+                    <TbReload className='btn-reset' />
+                </Tooltip>
             </div>
         </div>
     )
