@@ -1,4 +1,105 @@
+:root {
+  --brand-color-100: hsl(40, 100%, 95%);
+  --brand-color-200: hsl(40, 100%, 85%);
+  --brand-color-300: hsl(40, 98%, 75%);
+  --brand-color-400: hsl(40, 96%, 65%);
+  --brand-color-500: hsl(40, 95%, 50%);
+  --brand-color-600: hsl(40, 96%, 45%);
+  --brand-color-700: hsl(40, 98%, 35%);
+  --brand-color-800: hsl(40, 100%, 25%);
+  --brand-color-900: hsl(40, 100%, 10%);
+
+  --background-color: var(--brand-color-100);
+  --text-primary-color: var(--brand-color-900);
+
+  --card-background-color: color-mix(in srgb, var(--brand-color-100) 5%, white);
+  --card-border-color: var(--brand-color-100);
+  --card-shadow-color: var(--brand-color-900);
+}
+
 .App {
   height: 100dvh;
   overflow-y: auto;
+
+  background-color: var(--background-color);
+  color: var(--text-primary-color);
+
+  display: grid;
+  place-content: center;
+  grid-template-rows: min-content min-content;
+  grid-template-columns: minmax(100px, 800px);
+  gap: 2em;
+
+  .card {
+    background: var(--card-background-color);
+    padding: 2em;
+    border-radius: 1em;
+    border: 1px solid var(--card-border-color);
+    margin: 0 10px;
+    box-shadow: 4px 4px 10px color-mix(in srgb, var(--card-shadow-color) 8%, transparent);
+    max-width: 800px;
+  }
+}
+
+/* SLIDER */
+input[type='range'] {
+  --_thumb-size: 1.25em;
+  --_track-height: .6em;
+  --_track-border-radius: .5em;
+  --_thumb-border-radius: 50%;
+
+  border: none;
+  appearance: none;
+  -webkit-appearance: none;
+  border-radius: var(--_track-border-radius);
+  height: var(--_track-height);
+  background-color: var(--brand-color-300);
+
+  /* Chrome, Safari, Opera, and Edge Chromium */
+  &::-webkit-slider-thumb {
+    border: none;
+    appearance: none;
+    -webkit-appearance: none;
+    height: var(--_thumb-size);
+    width: var(--_thumb-size);
+    background-color: var(--brand-color-500);
+    border-radius: var(--_thumb-border-radius);
+    cursor: pointer;
+  }
+
+  /* Firefox */
+  &::-moz-range-progress {
+    border: none;
+    appearance: none;
+    -webkit-appearance: none;
+    height: var(--_track-height);
+    background-color: var(--brand-color-500);
+    border-radius: var(--_track-border-radius);
+    outline: 1px solid var(--brand-color-500);
+    outline-offset: -1px;
+  }
+  &::-moz-range-track {
+    border: none;
+    appearance: none;
+    -webkit-appearance: none;
+    height: var(--_track-height);
+    background-color: var(--brand-color-300);
+
+    border-radius: var(--_track-border-radius);
+    outline: 1px solid var(--brand-color-300);
+    outline-offset: -1px;
+  }
+  &::-moz-range-thumb {
+    border: none;
+    appearance: none;
+    -webkit-appearance: none;
+    height: var(--_thumb-size);
+    width: var(--_thumb-size);
+    background-color: var(--brand-color-500);
+
+    cursor: pointer;
+    border-radius: var(--_thumb-border-radius);
+    outline: 1px solid var(--brand-color-600);
+    outline-offset: -1px;
+  }
 }
