@@ -74,7 +74,7 @@ input[type='range'] {
     -webkit-appearance: none;
     height: var(--_track-height);
     background-color: var(--brand-color-500);
-    border-radius: var(--_track-border-radius);
+    border-radius: var(--_track-border-radius) 0 0 var(--_track-border-radius);
     outline: 1px solid var(--brand-color-500);
     outline-offset: -1px;
   }
